@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Macula Dropdown</title>
+    <link rel="stylesheet" href="http://assets.isocket.com/main.css">
+    <style>
+      .m-dropdown--toggle:after {
+        content: ' \25be'
+      }
+    </style>
+	</head>
+	<body>
+    <div class="l-container">
+      <div class="l-g">
+        <div class="l-col5 l-offset5">
+          <h1>Macula Dropdown</h1>
+
+          <div class="m-dropdown">
+            <button type="button" class="btn m-dropdown--toggle">Dropdown</button>
+
+            <ul class="m-dropdown--menu">
+              <li>
+                <a href="javascript://">Item 1</a>
+              </li>
+              <li>
+                <a href="javascript://">Item 2</a>
+              </li>
+              <li class="divider">
+                <a href="javascript://">Item 3 with divider</a>
+              </li>
+              </ul>
+          </div>
+
+          <hr>
+
+          <div class="m-dropdown">
+            <button type="button" class="btn m-dropdown--toggle">Dropdown</button>
+
+            <ul class="m-dropdown--menu">
+              <li>
+                <a href="javascript://">Item 1</a>
+              </li>
+              <li>
+                <a href="javascript://">Item 2</a>
+              </li>
+              <li class="divider">
+                <a href="javascript://">Item 3 with divider</a>
+              </li>
+              </ul>
+          </div>
+
+          <hr>
+
+          <div class="m-dropdown">
+            <button type="button" class="btn m-dropdown--toggle">Dropdown</button>
+
+            <ul class="m-dropdown--menu">
+              <li>
+                <a href="javascript://">Item 1</a>
+              </li>
+              <li>
+                <a href="javascript://">Item 2</a>
+              </li>
+              <li class="divider">
+                <a href="javascript://">Item 3 with divider</a>
+              </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="../lib/dropdown.js"></script>
+    <script>
+			$(function() {
+				$(".m-dropdown").mDropdown();
+			});
+		</script>
+	</body>
+</html>

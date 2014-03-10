@@ -1,0 +1,29 @@
+{
+  "name": "macula-dropdown",
+  "version": "0.0.0",
+  "authors": [
+    "Max Beatty <max@isocket.com>"
+  ],
+  "description": "Dropdown UI Component",
+  "main": "lib/dropdown.js",
+  "keywords": [
+    "jquery",
+    "macula",
+    "dropdown"
+  ],
+  "license": "MIT",
+  "homepage": "https://isocket.github.io/macula-dropdown",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "src",
+    "package.json",
+    "grunt",
+    "Gruntfile.coffee"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0"
+  }
+}

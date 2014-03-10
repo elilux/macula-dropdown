@@ -1,0 +1,31 @@
+{
+  "name": "macula-dropdown",
+  "version": "0.0.0",
+  "description": "Dropdown UI Component",
+  "main": "lib/dropdown.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "homepage": "https://isocket.github.io/macula-dropdown",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isocket/macula-dropdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/isocket/macula-dropdown/issues"
+  },
+  "keywords": [
+    "bower",
+    "macula",
+    "dropdown"
+  ],
+  "author": "Max Beatty",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "~1.7.1",
+    "grunt": "~0.4.3",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-coffeelint": "0.0.8",
+    "grunt-contrib-uglify": "~0.4.0"
+  }
+}
