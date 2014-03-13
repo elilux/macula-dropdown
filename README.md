@@ -49,5 +49,62 @@ $('.m-dropdown').mDropdown()
 
 ### Options
 
-- `toggleSelector`: what you click to open the dropdown. Think of it like a `<select>`
-- `menuSelector`: the dropdown items. Think of it like an `<option>`
+#### toggleSelector
+
+Type: `String`
+
+Default: `.m-dropdown--toggle`
+
+Selector for what you click to open the dropdown. Think of it like a `<select>`
+
+#### menuSelector
+
+Type: `String`
+
+Default: `.m-dropdown--menu li`
+
+Selector for the dropdown items. Think of it like an `<option>`
+
+#### selectedClass
+
+Type: `String`
+
+Default: `is-selected`
+
+Class that will be added to the `menuSelector` when clicked to become selected.
+
+---
+
+Example usage with options:
+
+```javascript
+$('.my-dropdown').mDropdown({
+  toggleSelector: '.my-dropdown-select'
+  menuSelector: '.my-dropdown-item'
+  selectedClass: 'now-selected'
+})
+```
+
+### Events
+
+#### select.macula.mDropdown
+
+This event fires immediately when a menu item is selected. The `mDropdown` data attribute or the text will be available as the `content` property of the event
+
+```html
+<ul class="m-dropdown--menu">
+  <li data-m-dropdown="custom">Item 1</li>
+  ...
+</ul>
+```
+
+```javascript
+$('.m-dropdown').mDropdown().on('select.macula.mDropdown', function(e) {
+  console.log(e.content)
+})
+```
+Triggering a `click` on that `li` will result in `custom` being logged to your console.
+
+## Release History
+
+- 2014-03-13 `v0.1.0` Add custom event and configurable class to select event handler
