@@ -10,25 +10,28 @@ See `demo/index.html` for example markup and usage
     factory = ($) ->
       namespace = 'macula'
       pluginName = 'mDropdown'
+      ns = "#{namespace}.#{pluginName}"
       instances = []
       defaults =
         toggleSelector: '.m-dropdown--toggle'
         menuSelector: '.m-dropdown--menu li'
+        selectedClass: 'is-selected'
 
 Close all dropdowns when user clicks (individual instance will open itself)
 
       closeAll = -> $(instances).removeClass 'is-open'
 
-      $(document).on "click.#{namespace}.#{pluginName}", closeAll
+      $(document).on "click.#{ns}", closeAll
 
       class Dropdown
 
-        constructor: (@element, options) ->
+        constructor: (element, options) ->
           @settings = $.extend {}, defaults, options
+          @$el = $(element)
 
-          $(@element)
-            .on "click.#{namespace}.#{pluginName}", @toggle
-            .on "click.#{namespace}.#{pluginName}", @settings.menuSelector, (e) => @select e
+          @$el
+            .on "click.#{ns}", @toggle
+            .on "click.#{ns}", @settings.menuSelector, (e) => @select e
 
 Toggling opens if its closed and closes if its open. Also closes other dropdowns
 
@@ -41,19 +44,27 @@ Toggling opens if its closed and closes if its open. Also closes other dropdowns
 
           return false
 
-Selecting an item will replace the toggle's content like a native HTML select
+Selecting an item will replace the toggle's content with either the data attribute matching this plugin's name or its text. An event will also fire with the same content attached. We also add a configurable class to the current target and remove it from its siblings.
 
         select: (evt) ->
-          $(@element).find(@settings.toggleSelector).text $(evt.currentTarget).text().trim()
+          $this = $(evt.currentTarget).addClass @settings.selectedClass
+          content = $this.data(pluginName) or $this.text().trim()
+
+          $this.siblings().removeClass @settings.selectedClass
+
+          @$el.trigger $.Event "select.#{ns}", content: content
+            .find(@settings.toggleSelector).text content
 
 Prevent against multiple instantiations with lightweight plugin wrapper
 
       $.fn[pluginName] = (options) ->
         @each ->
-          unless $.data @, "#{namespace}.#{pluginName}"
+          unless $.data @, ns
             d = new Dropdown @, options
             instances.push @
-            $.data @, "#{namespace}.#{pluginName}", d
+            $.data @, ns, d
+
+      return
 
 [Uses AMD or browser globals to create a jQuery plugin](1)
 
