@@ -1,6 +1,6 @@
 {
   "name": "macula-dropdown",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Dropdown UI Component",
   "main": "lib/dropdown.js",
   "scripts": {
