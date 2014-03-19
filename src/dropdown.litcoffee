@@ -36,13 +36,12 @@ Close all dropdowns when user clicks (individual instance will open itself)
 Toggling opens if its closed and closes if its open. Also closes other dropdowns
 
         toggle: (evt) ->
+          evt.stopPropagation()
           isActive = $(@).hasClass 'is-open'
 
           closeAll()
 
           $(@).toggleClass 'is-open' unless isActive
-
-          return false
 
 Selecting an item will replace the toggle's content with either the data attribute matching this plugin's name or its text. An event will also fire with the same content attached. We also add a configurable class to the current target and remove it from its siblings.
 
