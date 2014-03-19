@@ -21,7 +21,8 @@ Close all dropdowns when user clicks (individual instance will open itself)
 
       closeAll = -> $(instances).removeClass 'is-open'
 
-      $(document).on "click.#{ns}", closeAll
+      $(document).on "click.#{ns}", (e) ->
+        closeAll() unless $(evt.target).parents('.m-dropdown').length > 0
 
       class Dropdown
 
@@ -36,7 +37,6 @@ Close all dropdowns when user clicks (individual instance will open itself)
 Toggling opens if its closed and closes if its open. Also closes other dropdowns
 
         toggle: (evt) ->
-          evt.stopPropagation()
           isActive = $(@).hasClass 'is-open'
 
           closeAll()
